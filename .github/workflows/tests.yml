@@ -17,6 +17,7 @@ jobs:
     container: mcr.microsoft.com/playwright/python:v1.59.0-noble
     env:
       HOME: /root
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     strategy:
       fail-fast: false
       matrix:
