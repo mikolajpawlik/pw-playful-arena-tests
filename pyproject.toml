@@ -1,0 +1,22 @@
+[project]
+name = "pw-playful-arena-tests"
+version = "1.0.0"
+description = "Playwright E2E tests for playful-arena PWA"
+requires-python = ">=3.9"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-playwright>=0.5",
+    "python-dotenv>=1.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["e2e"]
+addopts = [
+    "--browser=chromium",
+    "--browser=firefox",
+    "--screenshot=only-on-failure",
+    "--tracing=retain-on-failure",
+    "--video=retain-on-failure",
+]

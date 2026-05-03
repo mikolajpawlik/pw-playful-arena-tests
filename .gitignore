@@ -1,4 +1,9 @@
-node_modules/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
 playwright-report/
 test-results/
 .env
