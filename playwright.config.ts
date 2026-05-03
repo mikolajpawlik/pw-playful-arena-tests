@@ -8,7 +8,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: [['html'], ['list']],
   use: {
-    baseURL: process.env.BASE_URL || 'https://your-project.lovable.app',
+    baseURL: process.env.BASE_URL || 'https://pw-playful-arena.lovable.app',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
   },
