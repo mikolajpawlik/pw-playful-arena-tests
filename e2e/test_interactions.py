@@ -34,12 +34,7 @@ class TestButtons:
 
     def test_long_press(self, page: Page):
         page.goto("/")
-        button = page.get_by_test_id("btn-longpress")
-        box = button.bounding_box()
-        page.mouse.move(box["x"] + box["width"] / 2, box["y"] + box["height"] / 2)
-        page.mouse.down()
-        page.wait_for_timeout(900)
-        page.mouse.up()
+        page.get_by_test_id("btn-longpress").click(delay=900)
         expect(page.get_by_test_id("msg-longpress")).to_be_visible()
 
 
