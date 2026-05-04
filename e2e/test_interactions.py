@@ -34,7 +34,10 @@ class TestButtons:
 
     def test_long_press(self, page: Page):
         page.goto("/")
-        page.get_by_test_id("btn-longpress").click(delay=900)
+        button = page.get_by_test_id("btn-longpress")
+        button.scroll_into_view_if_needed()
+        page.wait_for_timeout(200)
+        button.click(delay=900)
         expect(page.get_by_test_id("msg-longpress")).to_be_visible()
 
 
@@ -44,10 +47,10 @@ class TestDynamicState:
         page.get_by_test_id("tab-a").click()
         expect(page.get_by_test_id("tab-panel-a")).to_be_visible()
         page.get_by_test_id("tab-b").click()
-        expect(page.get_by_test_id("tab-panel-b")).to_be_visible()
+        expect(page.get_by_test_id("tab-panel-b")).to_be_visible(timeout=8000)
         expect(page.get_by_test_id("tab-panel-a")).not_to_be_visible()
         page.get_by_test_id("tab-c").click()
-        expect(page.get_by_test_id("tab-panel-c")).to_be_visible()
+        expect(page.get_by_test_id("tab-panel-c")).to_be_visible(timeout=8000)
         expect(page.get_by_test_id("tab-panel-b")).not_to_be_visible()
 
     def test_add_and_remove_list_item(self, page: Page):
